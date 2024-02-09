@@ -3,17 +3,29 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Details from "./components/Details";
 import NotFound from "./components/NotFound";
+import { useState } from "react";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
   return (
     <BrowserRouter>
-      <main className="d-flex flex-column justify-content-center vh-100 mainBg">
-        <Routes>
-          <Route element={<Home />} path="/" />
-          <Route element={<Details />} path="/Details/:cityId" />
-          <Route element={<NotFound />} path="*" />
-        </Routes>
-      </main>
+      <div className={`${isDarkMode ? "bg-dark" : "mainBg"} h-100`}>
+        <main>
+          <Routes>
+            <Route
+              element={<Home toggleMode={toggleMode} isDarkMode={isDarkMode} />}
+              path="/"
+            />
+            <Route element={<Details />} path="/Details/:cityId" />
+            <Route element={<NotFound />} path="*" />
+          </Routes>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }

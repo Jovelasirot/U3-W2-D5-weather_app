@@ -1,8 +1,7 @@
 @charset "UTF-8";
 .mainBg {
-  background: rgb(233, 113, 166);
-  background: radial-gradient(circle, rgb(233, 113, 166) 0%, rgb(148, 187, 233) 100%);
-  height: 100vh;
+  background: rgb(236, 114, 227);
+  background: radial-gradient(circle, rgb(236, 114, 227) 0%, rgb(148, 187, 233) 100%);
 }
 
 .glass {
@@ -31,6 +30,13 @@
   background-color: #555;
 }
 
+@media screen and (min-width: 1401px) {
+  main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
 .hourlyCard {
   margin-right: 20px;
   display: flex;

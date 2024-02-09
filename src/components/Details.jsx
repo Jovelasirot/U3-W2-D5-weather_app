@@ -46,7 +46,7 @@ const Details = () => {
 
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row className="h-100 justify-content-center">
         <Col>
           {loading ? (
             <Col>

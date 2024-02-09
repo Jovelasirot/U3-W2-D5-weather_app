@@ -6,7 +6,7 @@ import NotFound from "./components/NotFound";
 import { useState } from "react";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleMode = () => {
     setIsDarkMode((prevMode) => !prevMode);

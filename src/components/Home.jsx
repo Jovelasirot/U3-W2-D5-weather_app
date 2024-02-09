@@ -6,10 +6,16 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Home = ({ toggleMode, isDarkMode }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [country, setCountry] = useState("");
   return (
     <Container className="vh-100 d-flex flex-column justify-content-center ">
-      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <HomePage searchQuery={searchQuery} />
+      <Search
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        country={country}
+        setCountry={setCountry}
+      />
+      <HomePage searchQuery={searchQuery} country={country} />
       <Container className="mt-2  ">
         <Button
           onClick={toggleMode}

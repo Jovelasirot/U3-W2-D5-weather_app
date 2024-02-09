@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Placeholder, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const HomePage = ({ searchQuery }) => {
+const HomePage = ({ searchQuery, country }) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,9 +12,10 @@ const HomePage = ({ searchQuery }) => {
 
   const fetchWeather = () => {
     const cityName = searchQuery ? searchQuery : "Milan";
+    const countryCode = country ? country : "IT";
     console.log(cityName);
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=226fa256aed11c7804750ef0b498daf1`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&appid=226fa256aed11c7804750ef0b498daf1`
     )
       .then((response) => {
         if (response.ok) {

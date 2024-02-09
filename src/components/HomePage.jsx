@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const HomePage = ({ searchQuery, country }) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchWeather();
@@ -31,9 +30,7 @@ const HomePage = ({ searchQuery, country }) => {
       })
       .catch((error) => {
         console.error("There was a problem with the fetch:", error);
-        setError(
-          "There was a problem finding your city, try changing country ٩(＾◡＾)۶"
-        );
+
         setLoading(false);
       });
   };
@@ -60,8 +57,6 @@ const HomePage = ({ searchQuery, country }) => {
                 </Placeholder>
               </div>
             </Col>
-          ) : error ? (
-            <div>{error}</div>
           ) : (
             <Col className="glass p-3 text-light shadow ">
               <Row>

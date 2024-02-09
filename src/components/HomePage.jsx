@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const HomePage = ({ searchQuery, country }) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchWeather();

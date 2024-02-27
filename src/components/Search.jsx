@@ -43,6 +43,7 @@ const Search = ({ searchQuery, setSearchQuery, country, setCountry }) => {
             <option value="CA">Canada</option>
             <option value="IT">Italy</option>
             <option value="KP">Korea</option>
+            <option value="LV">Latvia</option>
             <option value="JP">Japan</option>
           </Form.Control>
         </Col>

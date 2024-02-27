@@ -8,10 +8,12 @@ const HomePage = ({ searchQuery, country }) => {
 
   useEffect(() => {
     fetchWeather();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery]);
 
   const fetchWeather = () => {
-    const cityName = searchQuery ? searchQuery : "Milan";
+    const cityName = searchQuery || "Milan";
     const countryCode = country ? country : "IT";
     console.log(cityName);
     fetch(
@@ -69,16 +71,16 @@ const HomePage = ({ searchQuery, country }) => {
                     Feels like:
                     {kelvinToC(weather.main.feels_like).toFixed(1)} °C
                   </p>
-                  <div>
-                    <span className="me-4">
+                  <Row xs={1} md={2}>
+                    <Col>
                       Max:
                       {kelvinToC(weather.main.temp_max).toFixed(1)} °C
-                    </span>
-                    <span>
+                    </Col>
+                    <Col>
                       Min:
                       {kelvinToC(weather.main.temp_min).toFixed(1)} °C
-                    </span>
-                  </div>
+                    </Col>
+                  </Row>
                 </Col>
                 <Col className="d-flex flex-column align-items-end justify-content-between ">
                   <Row className="flex-column gy-2 ">
